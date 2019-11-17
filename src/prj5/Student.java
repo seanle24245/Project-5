@@ -26,25 +26,41 @@ public class Student {
     }
     
     /**
-     * gets the hobby of the 
-     * @return
+     * gets the hobby of the student
+     * @return the hobby name
      */
     public String getHobby() {
         return hobby;
     }
     
+    /**
+     * gets from where the student is from
+     * @return the region name
+     */
     public String getRegion() {
         return region;
     }
     
+    /**
+     * gets the major of the student
+     * @return the major name
+     */
     public String getMajor() {
         return major;
     }
     
+    /**
+     * gets the student id of the student
+     * @return the ID number
+     */
     public int getStudentID() {
         return studentID;
     }
     
+    /**
+     * the number of responses 
+     * @param s if yes no or blank
+     */
     public void addResponse(String s) {
         if (s.equals("Yes")) {
             responses[responseIndex] = 1;
