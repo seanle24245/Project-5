@@ -61,4 +61,16 @@ public class DataSolver {
         dataScanner.close();
     }
     
+    public void sumSongs() {
+        for (int i = 0; i < studentList.size(); i++) {
+            int[] responses = studentList.get(i).getResponses();
+            
+            for(int x = 0; x < responses.length; x++) {
+                if (responses[x] == 1) {
+                    songList.get(x)
+                }
+            }
+        }
+    }
+    
 }
