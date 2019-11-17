@@ -22,7 +22,6 @@ public class Student {
         this.major = major;
         this.studentID = studentID;
         this.responseIndex = 0;
-        this.responses = new int[117]; // 140?
         this.responses = new int[140];
     }
     
