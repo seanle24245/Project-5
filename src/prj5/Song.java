@@ -14,6 +14,7 @@ public class Song {
     private String title;
     private String genre;
     private int year;
+    private String artist;
     private int amountOfYes;
     private int totalResponses;
     private int[] hobbyData;
@@ -28,10 +29,11 @@ public class Song {
      * @param genre the genre of the song
      * @param year the year the song was made
      */
-    public Song(String title, String genre, int year) {
+    public Song(String title, String artist, String genre, int year) {
         this.title = title;
         this.genre = genre;
         this.year = year;
+        this.artist = artist;
         this.amountOfYes = 0;
         this.totalResponses = 0;
         hobbyData = new int[ARRAY_SIZE];
@@ -62,6 +64,15 @@ public class Song {
      */
     public int getYear() {
         return year;
+    }
+    
+    
+    /**
+     * 
+     * @return
+     */
+    public String getArtist() {
+        return artist;
     }
     
     /**
