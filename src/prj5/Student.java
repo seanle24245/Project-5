@@ -8,16 +8,27 @@ public class Student {
     private int [] responses;
     private int responseIndex;
     
-    
+    /**
+     * the constructor of the student class
+     * 
+     * @param hobby the hobby of the student
+     * @param region the region from where the student is from
+     * @param major the major the student is
+     * @param studentID the studentID 
+     */
     public Student(String hobby, String region, String major, int studentID) {
         this.hobby = hobby;
         this.region = region;
         this.major = major;
         this.studentID = studentID;
         this.responseIndex = 0;
-        this.responses = new int[117];
+        this.responses = new int[117]; // 140?
     }
     
+    /**
+     * gets the hobby of the 
+     * @return
+     */
     public String getHobby() {
         return hobby;
     }
