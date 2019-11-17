@@ -1,3 +1,4 @@
+package prj5;
 /**
  * The song class contains all the data
  * for one specific song
