@@ -1,4 +1,14 @@
-
+/**
+ * The song class contains all the data
+ * for one specific song
+ * 
+ * @author ryantb
+ * @author sean2022
+ * @author christinatran
+ * 
+ * @version 2019.11.17
+ *
+ */
 public class Song {
     private String title;
     private String genre;
@@ -9,6 +19,14 @@ public class Song {
     private int[] regionData;
     private int[] majorData;
     public static final int ARRAY_SIZE = 16;
+    
+    /**
+     * The constructor of the song class
+     * 
+     * @param title the title of the song
+     * @param genre the genre of the song
+     * @param year the year the song was made
+     */
     public Song(String title, String genre, int year) {
         this.title = title;
         this.genre = genre;
