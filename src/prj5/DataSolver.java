@@ -14,4 +14,13 @@ public class DataSolver {
         songList = new SinglyLinkedList<Song>();
     }
     
+    public void readSongFile() {
+        while(songScanner.hasNext()) {
+            String nextLine = songScanner.next();
+            String[] arr = nextLine.split(",");
+            Song song = new Song(arr[0], arr[1], arr[3], Integer.parseInt(arr[2]));
+            songList.add(song);
+        }
+    }
+    
 }
