@@ -40,46 +40,75 @@ public class Song {
         
     }
     
+    /**
+     * 
+     * @return
+     */
     public String getTitle() {
         return title;
     }
     
+    /**
+     * 
+     * @return
+     */
     public String getGenre() {
         return genre;
     }
     
+    /**
+     * 
+     * @return
+     */
     public int getYear() {
         return year;
     }
     
+    /**
+     * 
+     * @return
+     */
     public double calcPercentage() {
         return (double)(amountOfYes/totalResponses);
     }
     
-    public int getHobbyData(int x) {
-        return hobbyData[x];
+    /**
+     * 
+     * @param index
+     * @return
+     */
+    public int getHobbyData(int index) {
+        return hobbyData[index];
     }
     
-    public int getRegionData(int x) {
-        return regionData[x];
+    /**
+     * 
+     */
+    public int getRegionData(int index) {
+        return regionData[index];
     }
     
-    public int getMajorData(int x) {
-        return majorData[x];
+    /**
+     * 
+     * @param index
+     * @return
+     */
+    public int getMajorData(int index) {
+        return majorData[index];
     }
     
-    public void incrementCounts(String s) {
-        if (s.equals("Yes")) {
+    /**
+     * 
+     * @param str
+     */
+    public void incrementCounts(String str) {
+        if (str.equals("Yes")) { 
             amountOfYes++;
             totalResponses++;
         }
-        else {
+        else { // "No" or blank response "" 
             totalResponses++;
         }
     }
-    
-  
-    
-    
-    
+
 }
