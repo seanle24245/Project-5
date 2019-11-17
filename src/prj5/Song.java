@@ -15,8 +15,8 @@ public class Song {
     private String genre;
     private int year;
     private String artist;
-    private int amountOfYes;
-    private int totalResponses;
+    private int liked;
+    private int heard;
     private int[] hobbyData;
     private int[] regionData;
     private int[] majorData;
@@ -34,8 +34,8 @@ public class Song {
         this.genre = genre;
         this.year = year;
         this.artist = artist;
-        this.amountOfYes = 0;
-        this.totalResponses = 0;
+        this.liked = 0;
+        this.heard = 0;
         hobbyData = new int[ARRAY_SIZE];
         regionData = new int[ARRAY_SIZE];
         majorData = new int[ARRAY_SIZE];
@@ -71,8 +71,9 @@ public class Song {
     
     
     /**
+     * gets the artist name
      * 
-     * @return
+     * @return the string of the name of the artist
      */
     public String getArtist() {
         return artist;
@@ -82,10 +83,10 @@ public class Song {
      * the percentage of yes divided
      * by the total of responses
      * 
-     * @return the percentage of amountOfYes / totalResponses
+     * @return the percentage of liked / heard
      */
     public double calcPercentage() {
-        return (double)(amountOfYes / totalResponses);
+        return (double)(liked / heard);
     }
     
     /**
@@ -121,17 +122,17 @@ public class Song {
         return majorData[index];
     }
     
-    /**
-     * increments the number of yes and total responses
-     * 
-     * @param str checks if the response was yes or not
-     */
-    public void incrementCounts(String str) {
-        if (str.equals("Yes")) { 
-            amountOfYes++;
-        }
-         // "No" or blank response "" 
-        totalResponses++;
-    }
+//    /**
+//     * increments the number of yes and total responses
+//     * TODO fix with response index
+//     * @param str checks if the response was yes or not
+//     */
+//    public void incrementCounts(String str) {
+//        if (str.equals("Yes")) { 
+//            liked++;
+//        }
+//         // "No" or blank response "" 
+//        heard++;
+//    }
 
 }
