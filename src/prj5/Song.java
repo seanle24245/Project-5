@@ -20,7 +20,7 @@ public class Song {
     private int[] hobbyData;
     private int[] regionData;
     private int[] majorData;
-    public static final int ARRAY_SIZE = 16;
+    public static final int ARRAY_SIZE = 8;
     
     /**
      * The constructor of the song class
