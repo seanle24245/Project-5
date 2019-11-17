@@ -6,9 +6,9 @@ import java.util.Scanner;
 /**
  * the DataSolver reads the files stores them on the list
  * 
- * @author ryantb
- * @author sean2022
- * @author christinatran
+ * @author Ryan Bui (ryantb)
+ * @author Sean Le (sean2022)
+ * @author Christina Tran (christinatran)
  * 
  * @version 2019.11.17
  *

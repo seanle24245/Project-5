@@ -3,9 +3,9 @@ package prj5;
  * The song class contains all the data
  * for one specific song
  * 
- * @author ryantb
- * @author sean2022
- * @author christinatran
+ * @author Ryan Bui (ryantb)
+ * @author Sean Le (sean2022)
+ * @author Christina Tran (christinatran)
  * 
  * @version 2019.11.17
  *
