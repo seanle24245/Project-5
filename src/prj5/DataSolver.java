@@ -3,16 +3,26 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * the DataSolver reads the files stores them on the list
+ * 
+ * @author ryantb
+ * @author sean2022
+ * @author christinatran
+ * 
+ * @version 2019.11.17
+ *
+ */
 public class DataSolver {
     private Scanner songScanner;
     private Scanner dataScanner;
     private SinglyLinkedList<Song> songList;
     
     /**
+     * the constructor of DataSolver
      * 
-     * 
-     * @param songFile
-     * @param dataFile
+     * @param songFile the file that contains all the song
+     * @param dataFile the file that contains the survey responses
      * @throws FileNotFoundException
      */
     public DataSolver(String songFile, String dataFile) throws FileNotFoundException {
@@ -22,7 +32,7 @@ public class DataSolver {
     }
     
     /**
-     * reads the song file
+     * reads the song file from the constructor
      */
     public void readSongFile() {
         while(songScanner.hasNext()) {
