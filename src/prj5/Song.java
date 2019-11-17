@@ -43,24 +43,27 @@ public class Song {
     }
     
     /**
+     * gets the title of the song
      * 
-     * @return
+     * @return the string of the song genre
      */
     public String getTitle() {
         return title;
     }
     
     /**
+     * gets the genre of the song
      * 
-     * @return
+     * @return the string of the song genre
      */
     public String getGenre() {
         return genre;
     }
     
     /**
+     * gets when the song was made
      * 
-     * @return
+     * @return the int of the year of the song
      */
     public int getYear() {
         return year;
@@ -76,50 +79,59 @@ public class Song {
     }
     
     /**
+     * the percentage of yes divided
+     * by the total of responses
      * 
-     * @return
+     * @return the percentage of amountOfYes / totalResponses
      */
     public double calcPercentage() {
-        return (double)(amountOfYes/totalResponses);
+        return (double)(amountOfYes / totalResponses);
     }
     
     /**
+     * gets the data from the hobby array
+     * at the specific index is called
      * 
-     * @param index
-     * @return
+     * @param index the location in the array where it's pulling data
+     * @return the data from hobby
      */
     public int getHobbyData(int index) {
         return hobbyData[index];
     }
     
     /**
+     * gets the data from the region array at
+     * the specific index that is called
      * 
+     * @param index the location in the array where it's pulling data
+     * @return the data from region
      */
     public int getRegionData(int index) {
         return regionData[index];
     }
     
     /**
+     * gets the data from the major array at 
+     * specific index that is called
      * 
-     * @param index
-     * @return
+     * @param index the location in the array where it's pulling data
+     * @return the data from major
      */
     public int getMajorData(int index) {
         return majorData[index];
     }
     
     /**
+     * increments the number of yes and total responses
      * 
-     * @param str
+     * @param str checks if the response was yes or not
      */
     public void incrementCounts(String str) {
         if (str.equals("Yes")) { 
             amountOfYes++;
-            totalResponses++;
         }
-        else { // "No" or blank response "" 
-            totalResponses++;
-        }
+         // "No" or blank response "" 
+        totalResponses++;
     }
 
 }
