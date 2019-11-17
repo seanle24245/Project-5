@@ -49,14 +49,17 @@ public class Song {
         return majorData[x];
     }
     
-    public void incrementYes() {
-        amountOfYes++;
-        totalResponses++;
+    public void incrementCounts(String s) {
+        if (s.equals("Yes")) {
+            amountOfYes++;
+            totalResponses++;
+        }
+        else {
+            totalResponses++;
+        }
     }
     
-    public void incrementNo() {
-        totalResponses++;
-    }
+  
     
     
     
