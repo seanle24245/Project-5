@@ -117,18 +117,9 @@ public class GUIWindow {
     }
     
     /**
-     * quits button
-     * 
-     * @param quit quits the window
-     */
-    public void clickedQuit(Button quit) {
-        System.exit(0);
-    }
-    
-    /**
      * creates glyphs and adds them to certain areas
      */
-    private void addGlyphs() {
+    private void addGlyphs() {        
         /**
          * the default glyph value (pole)
          * the the value to increment each glyph (pole)
@@ -146,7 +137,7 @@ public class GUIWindow {
             for (int j = 0; j < 3; j++) { // rows
                 poles[i + j] = new Shape(defaultXPole + (j * incrementX), 
                         defaultYPole + ((i / 3) * incrementY), 
-                        height, width, Color.BLACK);
+                        width, height, Color.BLACK);
             } // end row for loop
         } // end pole for loop
         
@@ -154,6 +145,11 @@ public class GUIWindow {
         for (int i = 0; i < poles.length; i++) {
             window.addShape(poles[i]);
         }
+        
+        // TEMP HARD CODE POLE
+        Shape temp = new Shape(defaultXPole, defaultYPole,
+                width, height, Color.BLACK);
+        window.addShape(temp);
         
         /**
          * the default glyph value (title and artist)
@@ -183,4 +179,12 @@ public class GUIWindow {
         } // end for
     } // end add glyphs
 
+    /**
+     * quits button
+     * 
+     * @param quit quits the window
+     */
+    public void clickedQuit(Button quit) {
+        System.exit(0);
+    }
 }
