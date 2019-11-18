@@ -2,6 +2,7 @@ package prj5;
 
 import CS2114.TextShape;
 import CS2114.Button;
+import CS2114.Shape;
 import CS2114.Window;
 import CS2114.WindowSide;
 import java.awt.Color;
@@ -22,7 +23,11 @@ public class GUIWindow {
      * fields
      */
     private Window window;
-    private TextShape textShape;
+    private TextShape[] titles;
+    private TextShape[] artist;
+    private Shape[] heard;
+    private Shape[] likes;
+    private Shape[] poles;
     private Button quitButton;
     private Button sortArt;
     private Button sortTitle;
@@ -48,6 +53,8 @@ public class GUIWindow {
         window.setTitle("Project");
         
         createButtons();
+        
+        addGlyphs();
     }
     
     /**
@@ -108,5 +115,72 @@ public class GUIWindow {
         window.addButton(repRegion, WindowSide.SOUTH);
         window.addButton(quitButton, WindowSide.SOUTH);
     }
+    
+    /**
+     * quits button
+     * 
+     * @param quit quits the window
+     */
+    public void clickedQuit(Button quit) {
+        System.exit(0);
+    }
+    
+    /**
+     * creates glyphs and adds them to certain areas
+     */
+    private void addGlyphs() {
+        /**
+         * the default glyph value (pole)
+         * the the value to increment each glyph (pole)
+         */
+        int defaultXPole = 125;
+        int defaultYPole = 50;
+        int incrementX = 300;
+        int incrementY = 200;
+        int height = 20;
+        int width = 30;
+        
+        // create poles
+        poles = new Shape[9];
+        for (int i = 0; i < poles.length; i++) {
+            for (int j = 0; j < 3; j++) { // rows
+                poles[i + j] = new Shape(defaultXPole + (j * incrementX), 
+                        defaultYPole + ((i / 3) * incrementY), 
+                        height, width, Color.BLACK);
+            } // end row for loop
+        } // end pole for loop
+        
+        // adds poles to window
+        for (int i = 0; i < poles.length; i++) {
+            window.addShape(poles[i]);
+        }
+        
+        /**
+         * the default glyph value (title and artist)
+         * the the value to increment each glyph (title and artist)
+         */
+        int defaultX = 130;
+        int defaultY = 10;
+        
+        //creates the text shapes for the title and artist
+        titles = new TextShape[9]; // TODO 9 is temp, but should be total songs
+        artist = new TextShape[9];
+        
+        // for loop to create TextShapes
+        for (int i = 0; i < titles.length; i++) { // the number of songs that there are
+            for (int j = 0; j < 3; j++) { // 3 for each row
+                titles[i + j] = new TextShape(defaultX + (j * incrementX),
+                        defaultY + (j * incrementY), "Song Title" + (i + j));
+                artist[i + j] = new TextShape(defaultX + (j * incrementX),
+                        defaultY + (j * incrementY) + 30, "Artist Name" + (i + j));
+            } //end for loop for each row of TextShape
+        } //end for loop for adding shapes
+        
+        //adding shapes to the window
+        for (int i = 0; i < titles.length; i++) {
+            window.addShape(titles[i]);
+            window.addShape(artist[i]);
+        } // end for
+    } // end add glyphs
 
 }
