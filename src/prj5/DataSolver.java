@@ -67,10 +67,12 @@ public class DataSolver {
             
             for(int x = 0; x < responses.length; x++) {
                 if (responses[x] == 1) {
-                    songList.get(x)
-                }
-            }
-        }
-    }
+                    songList.get(x);
+                } //end if
+            } // end for
+        } // end for 
+    } // end sumSongs
+    
+    //create a helper method to
     
 }
