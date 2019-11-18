@@ -129,7 +129,7 @@ public class GUIWindow {
         int defaultYPole = 60;
         int incrementX = 300;
         int incrementY = 200;
-        int height = 30;
+        int height = 60;
         int width = 10;
         
         // TEMP HARD CODE POLE
@@ -142,6 +142,9 @@ public class GUIWindow {
         TextShape bottomText = new TextShape(130, 30, "Artist Name");
         window.addShape(topText);
         window.addShape(bottomText);
+        
+        //center the TextShape, change it under for loop in the future
+        centerText(topText, bottomText);
         
         // create poles
         poles = new Shape[9];
@@ -158,6 +161,11 @@ public class GUIWindow {
         for (int i = 0; i < poles.length; i++) {
             window.addShape(poles[i]);
         }
+        
+        /**
+         * TODO 
+         * ERROR IN THE FOR LOOP CAUSING GLYPHS TO NOT INTIALIZE
+         */
         
         /**
          * the default glyph value (title and artist)
@@ -186,6 +194,33 @@ public class GUIWindow {
             window.addShape(artist[i]);
         } // end for
     } // end add glyphs
+    
+    /**
+     * this centers the text boxes to the glyph
+     * 
+     * @param title the title textshape to be centered
+     * @param artist the artist textshape to be centered
+     */
+    private void centerText(TextShape title, TextShape artist) {
+        // centers title TextShape
+        int titleLength = title.getText().length();
+        int newX = title.getX() - ((titleLength / 2) * 7);
+        title.setX(newX);
+        
+        int artLength = artist.getText().length();
+        int aNewX = artist.getX() - ((artLength / 2) * 8);
+        artist.setX(aNewX);
+    }
+    
+    // CREATE SOMETHING TO ADD LEFT SIDE OF POLE
+    private void addHeard() {
+        int defaultX = 25;
+        int defaultY = 60;
+        int height = 15;
+        int defaultWidth = 100;
+    }
+    
+    // CREATE SOMETHING TO ADD TO RIGHT SIDE OF POLE
 
     /**
      * quits button
