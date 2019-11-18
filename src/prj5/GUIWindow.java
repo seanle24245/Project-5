@@ -119,20 +119,33 @@ public class GUIWindow {
     /**
      * creates glyphs and adds them to certain areas
      */
-    private void addGlyphs() {        
+    private void addGlyphs() {    
+        
         /**
          * the default glyph value (pole)
          * the the value to increment each glyph (pole)
          */
         int defaultXPole = 125;
-        int defaultYPole = 50;
+        int defaultYPole = 60;
         int incrementX = 300;
         int incrementY = 200;
-        int height = 20;
-        int width = 30;
+        int height = 30;
+        int width = 10;
+        
+        // TEMP HARD CODE POLE
+        Shape temp1 = new Shape(defaultXPole, defaultYPole,
+                width, height, Color.BLACK);
+        window.addShape(temp1);
+        
+        // TEMP HARD CODE TEXTSHAPE
+        TextShape topText = new TextShape(130, 10, "Song Title");
+        TextShape bottomText = new TextShape(130, 30, "Artist Name");
+        window.addShape(topText);
+        window.addShape(bottomText);
         
         // create poles
         poles = new Shape[9];
+        System.out.println(Integer.toString(poles.length));
         for (int i = 0; i < poles.length; i++) {
             for (int j = 0; j < 3; j++) { // rows
                 poles[i + j] = new Shape(defaultXPole + (j * incrementX), 
@@ -145,11 +158,6 @@ public class GUIWindow {
         for (int i = 0; i < poles.length; i++) {
             window.addShape(poles[i]);
         }
-        
-        // TEMP HARD CODE POLE
-        Shape temp = new Shape(defaultXPole, defaultYPole,
-                width, height, Color.BLACK);
-        window.addShape(temp);
         
         /**
          * the default glyph value (title and artist)
