@@ -1,7 +1,9 @@
 package prj5;
 
 /**
- * The Student class that represents the students who fill out the survey responses. 
+ * The Student class that represents the students who fill out the survey
+ * responses.
+ * 
  * @author Ryan Bui (ryantb)
  * @author Sean Le (sean2022)
  * @author Christina Tran (christinatran)
@@ -82,6 +84,9 @@ public class Student {
 
     /**
      * the associated number of each individual, unique response
+     * 
+     * responses[] array only holds "Yes", "No" or blank "". Each response
+     * corresponds to a particular song by its index.
      * 
      * @param str if yes no or blank
      */

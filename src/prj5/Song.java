@@ -26,10 +26,13 @@ public class Song {
                                             // and each category has 2 sides,
                                             // heard and likes, making 8 array
                                             // elements
-
-    private double hobbyPercent;
-    private double regionPercent;
-    private double majorPercent;
+    /**
+     * Array indexes
+     * Columns 0-1: category 1 heard, likes (reading)
+     * Columns 2-3: category 2 heard, likes (art)
+     * Columns 4-5: category 3 heard, likes (sports)
+     * Columns 6-7: category 4 heard, likes (music)
+     */
 
     /**
      * The constructor of the song class
@@ -43,8 +46,10 @@ public class Song {
         this.genre = genre;
         this.year = year;
         this.artist = artist;
+        
         this.liked = 0;
         this.heard = 0;
+        
         hobbyData = new int[ARRAY_SIZE];
         regionData = new int[ARRAY_SIZE];
         majorData = new int[ARRAY_SIZE];
@@ -87,15 +92,14 @@ public class Song {
         return artist;
     }
 
-    /**
-     * the percentage of yes divided by the total of responses
-     * 
-     * @return the percentage of liked / heard
-     */
-    public double calcPercentage() {
-        return (double) (liked / heard);
-        // TODO
-    }
+//    /**
+//     * the percentage of yes divided by the total of responses
+//     * FIXME may have to rethink this method
+//     * @return the percentage of liked / heard
+//     */
+//    public double calcPercentage() {
+//        return (double) (liked / heard);
+//    }
 
     /**
      * gets the data from the hobby array at the specific index is called
@@ -139,8 +143,5 @@ public class Song {
 //         // "No" or blank response "" 
 //        heard++;
 //    }
-
-    public double calculatePercent() {
-
-    }
+    
 }

@@ -19,6 +19,11 @@ public class DataSolver {
     private SinglyLinkedList<Song> songList;
     private SinglyLinkedList<Student> studentList;
     
+    
+    private double hobbyPercent;
+    private double majorPercent;
+    private double regionPercent;
+    
     /**
      * the constructor of DataSolver
      * 

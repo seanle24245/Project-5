@@ -30,7 +30,7 @@ public class Input {
         GUIWindow display = new GUIWindow();
         // survey data file
         // song list data file
-        DataSolver dataSolver = new DataSolver("MusicSurveyData2018HolesHalf", "SongList2018HalfSongs"); 
+        DataSolver dataSolver = new DataSolver("MusicSurveyData2018HolesHalf.csv", "SongList2018HalfSongs.csv"); 
     }
 
 }
