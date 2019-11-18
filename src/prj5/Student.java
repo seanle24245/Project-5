@@ -34,14 +34,14 @@ public class Student {
         return studentID;
     }
     
-    public void addResponse(String s) {
-        if (s.equals("Yes")) {
+    public void addResponse(String str) {
+        if (str.equals("Yes")) {
             responses[responseIndex] = 1;
         }
-        else if(s.equals("No")) {
+        else if(str.equals("No")) {
             responses[responseIndex] = 0;
         }
-        else if (s.equals("")) {
+        else if (str.equals("")) {
             responses[responseIndex] = -1;
         }
         
