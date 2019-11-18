@@ -1,7 +1,7 @@
 package prj5;
+
 /**
- * The song class contains all the data
- * for one specific song
+ * The song class contains all the data for one specific song
  * 
  * @author Ryan Bui (ryantb)
  * @author Sean Le (sean2022)
@@ -15,19 +15,28 @@ public class Song {
     private String genre;
     private int year;
     private String artist;
-    private int liked;
-    private int heard;
+
+    private int liked; // might not need
+    private int heard; // might not need
+
     private int[] hobbyData;
     private int[] regionData;
     private int[] majorData;
-    public static final int ARRAY_SIZE = 8;
-    
+    public static final int ARRAY_SIZE = 8; // each student has 4 categories,
+                                            // and each category has 2 sides,
+                                            // heard and likes, making 8 array
+                                            // elements
+
+    private double hobbyPercent;
+    private double regionPercent;
+    private double majorPercent;
+
     /**
      * The constructor of the song class
      * 
      * @param title the title of the song
      * @param genre the genre of the song
-     * @param year the year the song was made
+     * @param year  the year the song was made
      */
     public Song(String title, String artist, String genre, int year) {
         this.title = title;
@@ -39,9 +48,9 @@ public class Song {
         hobbyData = new int[ARRAY_SIZE];
         regionData = new int[ARRAY_SIZE];
         majorData = new int[ARRAY_SIZE];
-        
+
     }
-    
+
     /**
      * gets the title of the song
      * 
@@ -50,7 +59,7 @@ public class Song {
     public String getTitle() {
         return title;
     }
-    
+
     /**
      * gets the genre of the song
      * 
@@ -59,7 +68,7 @@ public class Song {
     public String getGenre() {
         return genre;
     }
-    
+
     /**
      * gets when the song was made
      * 
@@ -68,8 +77,7 @@ public class Song {
     public int getYear() {
         return year;
     }
-    
-    
+
     /**
      * gets the artist name
      * 
@@ -78,20 +86,19 @@ public class Song {
     public String getArtist() {
         return artist;
     }
-    
+
     /**
-     * the percentage of yes divided
-     * by the total of responses
+     * the percentage of yes divided by the total of responses
      * 
      * @return the percentage of liked / heard
      */
     public double calcPercentage() {
-        return (double)(liked / heard);
+        return (double) (liked / heard);
+        // TODO
     }
-    
+
     /**
-     * gets the data from the hobby array
-     * at the specific index is called
+     * gets the data from the hobby array at the specific index is called
      * 
      * @param index the location in the array where it's pulling data
      * @return the data from hobby
@@ -99,10 +106,9 @@ public class Song {
     public int getHobbyData(int index) {
         return hobbyData[index];
     }
-    
+
     /**
-     * gets the data from the region array at
-     * the specific index that is called
+     * gets the data from the region array at the specific index that is called
      * 
      * @param index the location in the array where it's pulling data
      * @return the data from region
@@ -110,10 +116,9 @@ public class Song {
     public int getRegionData(int index) {
         return regionData[index];
     }
-    
+
     /**
-     * gets the data from the major array at 
-     * specific index that is called
+     * gets the data from the major array at specific index that is called
      * 
      * @param index the location in the array where it's pulling data
      * @return the data from major
@@ -121,7 +126,7 @@ public class Song {
     public int getMajorData(int index) {
         return majorData[index];
     }
-    
+
 //    /**
 //     * increments the number of yes and total responses
 //     * TODO fix with response index
@@ -135,4 +140,7 @@ public class Song {
 //        heard++;
 //    }
 
+    public double calculatePercent() {
+
+    }
 }
