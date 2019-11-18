@@ -2,11 +2,12 @@ package prj5;
 
 /**
  * Basic implementation of the linked list class
+ * 
  * @author Ryan Bui (ryantb)
  * @author Sean Le (sean2022)
  * @author Christina Tran (christinatran)
- * @param <E>
- *            This is the type of object that this class will store
+ * @version 2019.11.17
+ * @param <E> This is the type of object that this class will store
  */
 
 public class SinglyLinkedList<E> {
@@ -15,21 +16,11 @@ public class SinglyLinkedList<E> {
      * This represents a node in a singly linked list. This node stores data
      * along with having a pointer to the next node in the list
      *
-     * @param <D>
-     *            This is the type of object that this class will store
-     * @author Mark Wiggans (mmw125)
-     * @author Christina Olk (colk)
-     * @author maellis1
-     * @author Jamal Ahmad (jamal93)
-     * @author Margaret Ellis (maellis1)
-     * @author JW Lee (jiayiw6)
-     * 
-     * @version 4/14/2015
-     * @version 9.4.15
-     * @version 10.29.15
-     * @version 10/15/2016
-     * @version 03/17/2017
-     * @version 10/14/2019
+     * @param <D> This is the type of object that this class will store
+     * @author Ryan Bui (ryantb)
+     * @author Sean Le (sean2022)
+     * @author Christina Tran (christinatran)
+     * @version 2019.11.17
      */
     public static class Node<D> {
 
@@ -42,24 +33,20 @@ public class SinglyLinkedList<E> {
         /**
          * Creates a new node with the given data
          *
-         * @param d
-         *            the data to put inside the node
+         * @param d the data to put inside the node
          */
         public Node(D d) {
             data = d;
         }
 
-
         /**
          * Sets the node after this node
          *
-         * @param n
-         *            the node after this one
+         * @param n the node after this one
          */
         public void setNext(Node<D> n) {
             next = n;
         }
-
 
         /**
          * Gets the next node
@@ -69,7 +56,6 @@ public class SinglyLinkedList<E> {
         public Node<D> next() {
             return next;
         }
-
 
         /**
          * Gets the data in the node
@@ -95,7 +81,6 @@ public class SinglyLinkedList<E> {
 
     }
 
-
     /**
      * Gets the number of elements in the list
      *
@@ -105,19 +90,15 @@ public class SinglyLinkedList<E> {
         return size;
     }
 
-
     /**
      * Adds the object to the position in the list
      *
      * @precondition obj cannot be null
-     * @param index
-     *            where to add the object
-     * @param obj
-     *            the object to add
-     * @throws IndexOutOfBoundsException
-     *             if index is less than zero or greater than size
-     * @throws IllegalArgumentException
-     *             if obj is null
+     * @param index where to add the object
+     * @param obj   the object to add
+     * @throws IndexOutOfBoundsException if index is less than zero or greater
+     *                                   than size
+     * @throws IllegalArgumentException  if obj is null
      */
     public void add(int index, E obj) {
         // check if the object is null
@@ -144,8 +125,7 @@ public class SinglyLinkedList<E> {
                 Node<E> newNode = new Node<E>(obj);
                 newNode.setNext(head);
                 head = newNode;
-            }
-            else {
+            } else {
                 int currentIndex = 0;
                 while (current != null) {
                     if ((currentIndex + 1) == index) {
@@ -164,15 +144,12 @@ public class SinglyLinkedList<E> {
         size++;
     }
 
-
     /**
      * Adds the object to the end of the list.
      *
      * @precondition obj cannot be null
-     * @param obj
-     *            the object to add
-     * @throws IllegalArgumentException
-     *             if obj is null
+     * @param obj the object to add
+     * @throws IllegalArgumentException if obj is null
      */
     public void add(E obj) {
         // check if the object is null
@@ -197,7 +174,6 @@ public class SinglyLinkedList<E> {
         size++;
     }
 
-
     /**
      * Checks if the array is empty
      *
@@ -207,12 +183,10 @@ public class SinglyLinkedList<E> {
         return (size == 0);
     }
 
-
     /**
      * Removes the first instance of the given object from the list
      *
-     * @param obj
-     *            the object to remove
+     * @param obj the object to remove
      * @return true if successful
      */
     public boolean remove(E obj) {
@@ -230,8 +204,7 @@ public class SinglyLinkedList<E> {
             if ((obj.equals(current.next.data))) {
                 if (current.next.next != null) {
                     current.setNext(current.next.next);
-                }
-                else if (current.next.next == null) {
+                } else if (current.next.next == null) {
                     current.setNext(null);
                 }
                 size--;
@@ -244,15 +217,12 @@ public class SinglyLinkedList<E> {
         return false;
     }
 
-
     /**
      * Removes the object at the given position
      *
-     * @param index
-     *            the position of the object
+     * @param index the position of the object
      * @return true if the removal was successful
-     * @throws IndexOutOfBoundsException
-     *             if there is not an element at the index
+     * @throws IndexOutOfBoundsException if there is not an element at the index
      */
     public boolean remove(int index) {
         // if the index is invalid
@@ -263,8 +233,7 @@ public class SinglyLinkedList<E> {
             head = head.next;
             size--;
             return true;
-        }
-        else {
+        } else {
             Node<E> current = head;
             int currentIndex = 0;
 
@@ -284,15 +253,12 @@ public class SinglyLinkedList<E> {
         }
     }
 
-
     /**
      * Gets the object at the given position
      *
-     * @param index
-     *            where the object is located
+     * @param index where the object is located
      * @return The object at the given position
-     * @throws IndexOutOfBoundsException
-     *             if no node at the given index
+     * @throws IndexOutOfBoundsException if no node at the given index
      */
     public E get(int index) {
         Node<E> current = head;
@@ -314,12 +280,10 @@ public class SinglyLinkedList<E> {
         return data;
     }
 
-
     /**
      * Checks if the list contains the given object
      *
-     * @param obj
-     *            the object to check for
+     * @param obj the object to check for
      * @return true if it contains the object
      */
     public boolean contains(E obj) {
@@ -334,7 +298,6 @@ public class SinglyLinkedList<E> {
         return false;
     }
 
-
     /**
      * Removes all of the elements from the list
      */
@@ -348,12 +311,10 @@ public class SinglyLinkedList<E> {
 
     }
 
-
     /**
      * Gets the last time the given object is in the list
      *
-     * @param obj
-     *            the object to look for
+     * @param obj the object to look for
      * @return the last position of it. -1 If it is not in the list
      */
     public int lastIndexOf(E obj) {
@@ -370,7 +331,6 @@ public class SinglyLinkedList<E> {
         }
         return lastIndex;
     }
-
 
     /**
      * Returns a string representation of the list If a list contains A, B, and
@@ -394,11 +354,10 @@ public class SinglyLinkedList<E> {
         return result;
     }
 
-
     /**
      * Returns an array representation of the list If a list contains A, B, and
-     * C, the following should be returned {A, B, C}, If a list
-     * contains A, B, C, and C the following should be returned {A, B, C, C}
+     * C, the following should be returned {A, B, C}, If a list contains A, B,
+     * C, and C the following should be returned {A, B, C, C}
      *
      * @return an array representing the list
      */
@@ -417,13 +376,12 @@ public class SinglyLinkedList<E> {
         return array;
     }
 
-
     /**
-     * Returns true if both lists have the exact same contents
-     * in the exact same order
+     * Returns true if both lists have the exact same contents in the exact same
+     * order
      *
-     * @return a boolean of whether two lists have the same contents,
-     *         item per item and in the same order
+     * @return a boolean of whether two lists have the same contents, item per
+     *         item and in the same order
      */
     @Override
     public boolean equals(Object obj) {
@@ -435,7 +393,7 @@ public class SinglyLinkedList<E> {
         }
         if (this.getClass() == obj.getClass()) {
             @SuppressWarnings("unchecked")
-            SinglyLinkedList<E> other = ((SinglyLinkedList<E>)obj);
+            SinglyLinkedList<E> other = ((SinglyLinkedList<E>) obj);
             if (other.size() == this.size()) {
                 Node<E> current = head;
                 Node<E> otherCurrent = other.head;
