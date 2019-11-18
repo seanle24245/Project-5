@@ -27,6 +27,7 @@ public class Input {
      * @throws FileNotFoundException 
      */
     public static void main(String[] args) throws FileNotFoundException {
+        GUIWindow display = new GUIWindow();
         // survey data file
         // song list data file
         DataSolver dataSolver = new DataSolver("MusicSurveyData2018HolesHalf", "SongList2018HalfSongs"); 
