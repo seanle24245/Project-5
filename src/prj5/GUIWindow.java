@@ -65,6 +65,48 @@ public class GUIWindow {
         // sort by the title
         sortTitle = new Button("Sort by Song Title");
         sortTitle.onClick(this, "clickedSortTitle");
+        
+        // sort by the year
+        sortYear = new Button("Sort by Release Year");
+        sortYear.onClick(this, "clickedSortYear");
+        
+        // sort by the genre
+        sortGenre = new Button("Sort by Genre");
+        sortGenre.onClick(this, "clickedSortGenre");
+        
+        // represent by hobby
+        repHobby = new Button("Represent Hobby");
+        repHobby.onClick(this, "clickedRepHobby");
+        
+        // represent by major
+        repMajor = new Button("Represent Major");
+        repMajor.onClick(this, "clickedRepMajor");
+        
+        // represent by region
+        repRegion = new Button("Represent Region");
+        repRegion.onClick(this, "clickedRepRegion");
+        
+        // next button
+        nextButton = new Button("Next");
+        nextButton.onClick(this, "clickedNext");
+        
+        // previous button
+        prevButton = new Button("Prev");
+        prevButton.onClick(this, "clickedPrev");
+        
+        // north side buttons
+        window.addButton(prevButton, WindowSide.NORTH);
+        window.addButton(sortArt, WindowSide.NORTH);
+        window.addButton(sortTitle, WindowSide.NORTH);
+        window.addButton(sortYear, WindowSide.NORTH);
+        window.addButton(sortGenre, WindowSide.NORTH);
+        window.addButton(nextButton, WindowSide.NORTH);
+        
+        // south side buttons
+        window.addButton(repHobby, WindowSide.SOUTH);
+        window.addButton(repMajor, WindowSide.SOUTH);
+        window.addButton(repRegion, WindowSide.SOUTH);
+        window.addButton(quitButton, WindowSide.SOUTH);
     }
 
 }
