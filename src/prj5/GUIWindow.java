@@ -54,11 +54,33 @@ public class GUIWindow {
         
         createButtons();
         
-        addGlyphs();
+        // start textshape and pole -----------------------
+        // TEMP HARD CODE POLE
+        Shape temp1 = new Shape(125, 60,
+                10, 60, Color.BLACK);
+        window.addShape(temp1);
+        
+        // TEMP HARD CODE TEXTSHAPE
+        TextShape topText = new TextShape(130, 10, "Song Title");
+        TextShape bottomText = new TextShape(130, 30, "Artist Name");
+        window.addShape(topText);
+        window.addShape(bottomText);
+        
+        //center the TextShape, change it under for loop in the future
+        centerText(topText, bottomText);
+        // END TEXTSHAPE AND POLE -------------------------
+        
+        legend();
         
         addLike();
         
         addHeard();
+        
+        //addGlyphs();
+        
+        //legend();
+        
+        
     }
     
     /**
@@ -150,53 +172,53 @@ public class GUIWindow {
         //center the TextShape, change it under for loop in the future
         centerText(topText, bottomText);
         
-        // create poles
-        poles = new Shape[9];
-        System.out.println(Integer.toString(poles.length));
-        for (int i = 0; i < poles.length; i++) {
-            for (int j = 0; j < 3; j++) { // rows
-                poles[i + j] = new Shape(defaultXPole + (j * incrementX), 
-                        defaultYPole + ((i / 3) * incrementY), 
-                        width, height, Color.BLACK);
-            } // end row for loop
-        } // end pole for loop
-        
-        // adds poles to window
-        for (int i = 0; i < poles.length; i++) {
-            window.addShape(poles[i]);
-        }
-        
-        /**
-         * TODO 
-         * ERROR IN THE FOR LOOP CAUSING GLYPHS TO NOT INTIALIZE
-         */
-        
-        /**
-         * the default glyph value (title and artist)
-         * the the value to increment each glyph (title and artist)
-         */
-        int defaultX = 130;
-        int defaultY = 10;
-        
-        //creates the text shapes for the title and artist
-        titles = new TextShape[9]; // TODO 9 is temp, but should be total songs
-        artist = new TextShape[9];
-        
-        // for loop to create TextShapes
-        for (int i = 0; i < titles.length; i++) { // the number of songs that there are
-            for (int j = 0; j < 3; j++) { // 3 for each row
-                titles[i + j] = new TextShape(defaultX + (j * incrementX),
-                        defaultY + (j * incrementY), "Song Title" + (i + j));
-                artist[i + j] = new TextShape(defaultX + (j * incrementX),
-                        defaultY + (j * incrementY) + 30, "Artist Name" + (i + j));
-            } //end for loop for each row of TextShape
-        } //end for loop for adding shapes
-        
-        //adding shapes to the window
-        for (int i = 0; i < titles.length; i++) {
-            window.addShape(titles[i]);
-            window.addShape(artist[i]);
-        } // end for
+//        // create poles
+//        poles = new Shape[9];
+//        System.out.println(Integer.toString(poles.length));
+//        for (int i = 0; i < poles.length; i++) {
+//            for (int j = 0; j < 3; j++) { // rows
+//                poles[i + j] = new Shape(defaultXPole + (j * incrementX), 
+//                        defaultYPole + ((i / 3) * incrementY), 
+//                        width, height, Color.BLACK);
+//            } // end row for loop
+//        } // end pole for loop
+//        
+//        // adds poles to window
+//        for (int i = 0; i < poles.length; i++) {
+//            window.addShape(poles[i]);
+//        }
+//        
+//        /**
+//         * TODO 
+//         * ERROR IN THE FOR LOOP CAUSING GLYPHS TO NOT INTIALIZE
+//         */
+//        
+//        /**
+//         * the default glyph value (title and artist)
+//         * the the value to increment each glyph (title and artist)
+//         */
+//        int defaultX = 130;
+//        int defaultY = 10;
+//        
+//        //creates the text shapes for the title and artist
+//        titles = new TextShape[9]; // TODO 9 is temp, but should be total songs
+//        artist = new TextShape[9];
+//        
+//        // for loop to create TextShapes
+//        for (int i = 0; i < titles.length; i++) { // the number of songs that there are
+//            for (int j = 0; j < 3; j++) { // 3 for each row
+//                titles[i + j] = new TextShape(defaultX + (j * incrementX),
+//                        defaultY + (j * incrementY), "Song Title" + (i + j));
+//                artist[i + j] = new TextShape(defaultX + (j * incrementX),
+//                        defaultY + (j * incrementY) + 30, "Artist Name" + (i + j));
+//            } //end for loop for each row of TextShape
+//        } //end for loop for adding shapes
+//        
+//        //adding shapes to the window
+//        for (int i = 0; i < titles.length; i++) {
+//            window.addShape(titles[i]);
+//            window.addShape(artist[i]);
+//        } // end for
     } // end add glyphs
     
     /**
@@ -218,7 +240,7 @@ public class GUIWindow {
     
     // CREATE SOMETHING TO ADD LEFT SIDE OF POLE
     private void addHeard() {
-        int defaultX = 25;
+        int defaultX = 40;
         int defaultY = 60;
         int height = 15; // increment by height
         int defaultWidth = 70; //number of heard questions
@@ -247,16 +269,12 @@ public class GUIWindow {
         window.addShape(heard1);
         window.addShape(heard2);
         window.addShape(heard3);
-        window.addShape(heard4);
-        
-        Shape test = new Shape(100, 100, 100, 100, Color.BLACK);
-        window.addShape(test);
-        
+        window.addShape(heard4);        
     }
     
     // CREATE SOMETHING TO ADD TO RIGHT SIDE OF POLE
     private void addLike() {
-        int defaultX = 135;
+        int defaultX = 150;
         int defaultY = 60;
         int height = 15; // increment by height
         int defaultWidth = 70; //number of heard questions
@@ -268,27 +286,91 @@ public class GUIWindow {
         int percent4 = 50;
         
         //creating the shape
-        Shape heard1 = new Shape(defaultX - percent1, 
+        Shape like1 = new Shape(defaultX - percent1, 
                 defaultY, 
                 defaultWidth, height, Color.BLUE);
-        Shape heard2 = new Shape(defaultX - percent2, 
+        Shape like2 = new Shape(defaultX - percent2, 
                 defaultY + height, 
                 defaultWidth, height, Color.MAGENTA);
-        Shape heard3 = new Shape(defaultX - percent3, 
+        Shape like3 = new Shape(defaultX - percent3, 
                 defaultY + (height * 2), 
                 defaultWidth, height, Color.YELLOW);
-        Shape heard4 = new Shape(defaultX - percent4, 
+        Shape like4 = new Shape(defaultX - percent4, 
                 defaultY + (height * 3), 
                 defaultWidth, height, Color.CYAN);
 
         //adding shapes to window
-        window.addShape(heard1);
-        window.addShape(heard2);
-        window.addShape(heard3);
-        window.addShape(heard4);
+        window.addShape(like1);
+        window.addShape(like2);
+        window.addShape(like3);
+        window.addShape(like4);
+    }
+    
+    /**
+     * adding a legend
+     */
+    private void legend() {
+        //outline
+        int x = window.getGraphPanelWidth() * 5 / 6 - 2;
+        int y = window.getGraphPanelHeight() / 6 + 40;
+        Shape outline = new Shape(x, y, 
+                window.getGraphPanelWidth() - x - 5, 
+                window.getGraphPanelHeight() - y - 15,
+                Color.BLACK);
         
-        Shape test = new Shape(100, 100, 100, 100, Color.BLACK);
-        window.addShape(test);
+        
+        //inside the outline
+        int x2 = window.getGraphPanelWidth() * 5 / 6 - 2;
+        int y2 = window.getGraphPanelHeight() / 6 + 40;
+        Shape box = new Shape(x + 5, y + 5, 
+                window.getGraphPanelWidth() - x2 - 15, 
+                window.getGraphPanelHeight() - y2 - 25,
+                Color.WHITE);
+        
+        //text shapes
+        TextShape legend = new TextShape(x + 9, y + 5, "Hobby Legend");
+        TextShape read = new TextShape(x + 5, y + 25, "Read");
+        TextShape art = new TextShape(x + 5, y + 45, "Art");
+        TextShape sports = new TextShape(x + 5, y + 65, "Sports");
+        TextShape music = new TextShape(x + 5, y + 85, "Music");
+        TextShape heard = new TextShape(x + 5, y + 125, "Heard");
+        TextShape like = new TextShape(x + 70, y + 125, "Likes");
+        TextShape title = new TextShape(x + 20, y + 100, "Song Title");
+        
+        // set text background color
+        legend.setBackgroundColor(Color.WHITE);
+        read.setBackgroundColor(Color.WHITE);
+        art.setBackgroundColor(Color.WHITE);
+        sports.setBackgroundColor(Color.WHITE);
+        music.setBackgroundColor(Color.WHITE);
+        heard.setBackgroundColor(Color.WHITE);
+        like.setBackgroundColor(Color.WHITE);
+        title.setBackgroundColor(Color.WHITE);
+        
+        // set text color
+        read.setForegroundColor(Color.BLUE);
+        art.setForegroundColor(Color.MAGENTA);
+        sports.setForegroundColor(Color.YELLOW);
+        music.setForegroundColor(Color.CYAN);
+        
+        // fake glyph change in future
+        Shape temp1 = new Shape(x + 55, y + 120,
+                10, 60, Color.BLACK);
+        window.addShape(temp1);
+        
+        // text to window
+        window.addShape(legend);
+        window.addShape(read);
+        window.addShape(art);
+        window.addShape(sports);
+        window.addShape(music);
+        window.addShape(heard);
+        window.addShape(like);
+        window.addShape(title);
+        
+        // outline to window
+        window.addShape(box);
+        window.addShape(outline);
     }
     
     /**
