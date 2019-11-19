@@ -13,7 +13,7 @@ package prj5;
 public class Song {
     private String title;
     private String genre;
-    private int year;
+    private String year;
     private String artist;
 
     private int liked; // might not need
@@ -41,7 +41,7 @@ public class Song {
      * @param genre the genre of the song
      * @param year  the year the song was made
      */
-    public Song(String title, String artist, String genre, int year) {
+    public Song(String title, String artist, String genre, String year) {
         this.title = title;
         this.genre = genre;
         this.year = year;
@@ -79,7 +79,7 @@ public class Song {
      * 
      * @return the int of the year of the song
      */
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
@@ -111,25 +111,17 @@ public class Song {
         return hobbyData[index];
     }
 
-    /**
-     * gets the data from the region array at the specific index that is called
-     * 
-     * @param index the location in the array where it's pulling data
-     * @return the data from region
-     */
-    public int getRegionData(int index) {
-        return regionData[index];
-    }
 
-    /**
-     * gets the data from the major array at specific index that is called
-     * 
-     * @param index the location in the array where it's pulling data
-     * @return the data from major
-     */
-    public int getMajorData(int index) {
-        return majorData[index];
+
+    
+    public void incrementHobbyLiked(int index) {
+        hobbyData[index]++;
     }
+    
+    public void incrementHobbyHeard(int index) {
+        hobbyData[index+1]++;
+    }
+    
 
 //    /**
 //     * increments the number of yes and total responses

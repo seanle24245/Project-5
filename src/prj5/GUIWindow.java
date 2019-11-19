@@ -55,6 +55,10 @@ public class GUIWindow {
         createButtons();
         
         addGlyphs();
+        
+        addLike();
+        
+        addHeard();
     }
     
     /**
@@ -216,12 +220,77 @@ public class GUIWindow {
     private void addHeard() {
         int defaultX = 25;
         int defaultY = 60;
-        int height = 15;
-        int defaultWidth = 100;
+        int height = 15; // increment by height
+        int defaultWidth = 70; //number of heard questions
+        
+        // insertion of percentages here
+        int percent1 = 35; // this would be the percentage
+        int percent2 = 15;
+        int percent3 = 60;
+        int percent4 = 50;
+        
+        //creating the shape
+        Shape heard1 = new Shape(defaultX + percent1, 
+                defaultY, 
+                defaultWidth, height, Color.BLUE);
+        Shape heard2 = new Shape(defaultX + percent2, 
+                defaultY + height, 
+                defaultWidth, height, Color.MAGENTA);
+        Shape heard3 = new Shape(defaultX + percent3, 
+                defaultY + (height * 2), 
+                defaultWidth, height, Color.YELLOW);
+        Shape heard4 = new Shape(defaultX + percent4, 
+                defaultY + (height * 3), 
+                defaultWidth, height, Color.CYAN);
+
+        //adding shapes to window
+        window.addShape(heard1);
+        window.addShape(heard2);
+        window.addShape(heard3);
+        window.addShape(heard4);
+        
+        Shape test = new Shape(100, 100, 100, 100, Color.BLACK);
+        window.addShape(test);
+        
     }
     
     // CREATE SOMETHING TO ADD TO RIGHT SIDE OF POLE
+    private void addLike() {
+        int defaultX = 135;
+        int defaultY = 60;
+        int height = 15; // increment by height
+        int defaultWidth = 70; //number of heard questions
+        
+        // insertion of percentages here
+        int percent1 = 35; // this would be the percentage
+        int percent2 = 15;
+        int percent3 = 60;
+        int percent4 = 50;
+        
+        //creating the shape
+        Shape heard1 = new Shape(defaultX - percent1, 
+                defaultY, 
+                defaultWidth, height, Color.BLUE);
+        Shape heard2 = new Shape(defaultX - percent2, 
+                defaultY + height, 
+                defaultWidth, height, Color.MAGENTA);
+        Shape heard3 = new Shape(defaultX - percent3, 
+                defaultY + (height * 2), 
+                defaultWidth, height, Color.YELLOW);
+        Shape heard4 = new Shape(defaultX - percent4, 
+                defaultY + (height * 3), 
+                defaultWidth, height, Color.CYAN);
 
+        //adding shapes to window
+        window.addShape(heard1);
+        window.addShape(heard2);
+        window.addShape(heard3);
+        window.addShape(heard4);
+        
+        Shape test = new Shape(100, 100, 100, 100, Color.BLACK);
+        window.addShape(test);
+    }
+    
     /**
      * quits button
      * 
