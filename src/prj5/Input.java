@@ -19,6 +19,7 @@ public class Input {
      * New Input object.
      */
     public Input() {
+        // dont need constructor
     }
 
     /**
@@ -31,6 +32,9 @@ public class Input {
         // survey data file
         // song list data file
         DataSolver dataSolver = new DataSolver("MusicSurveyData2018HolesHalf.csv", "SongList2018HalfSongs.csv"); 
+        dataSolver.readSongFile();
+        dataSolver.sortSongsByTitle();
+        System.out.println(dataSolver.getSongList().toString());
     }
 
 }

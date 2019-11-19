@@ -344,7 +344,7 @@ public class SinglyLinkedList<E> {
 
         Node<E> current = head;
         while (current != null) {
-            result += "" + current.data;
+            result += "" + current.data.toString();
             current = current.next;
             if (current != null) {
                 result += ", ";

@@ -110,7 +110,10 @@ public class Song {
     public int getHobbyData(int index) {
         return hobbyData[index];
     }
-
+    
+    public String toString() {
+        return "Title:" + title + "genre: " + genre;
+    }
 
 
     
