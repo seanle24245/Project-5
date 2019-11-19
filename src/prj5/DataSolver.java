@@ -23,6 +23,7 @@ public class DataSolver {
     /**
      * the constructor of DataSolver
      * fasfsf
+     * 
      * @param songFile
      *            the file that contains all the song
      * @param dataFile
@@ -34,6 +35,7 @@ public class DataSolver {
         songScanner = new Scanner(new File(songFile));
         dataScanner = new Scanner(new File(dataFile));
         songList = new SinglyLinkedList<Song>();
+        studentList = new SinglyLinkedList<Student>();
     }
 
 
@@ -49,13 +51,14 @@ public class DataSolver {
         }
     }
 
+
     /**
      * reads survey data and populates list of students
      */
     public void readDataFile() {
         dataScanner.nextLine();
         while (dataScanner.hasNext()) {
-            String nextLine = songScanner.nextLine();
+            String nextLine = dataScanner.nextLine();
             String[] arr = nextLine.split(",");
             int studentID = Integer.parseInt(arr[0]);
             String major = arr[2];
@@ -65,14 +68,19 @@ public class DataSolver {
             for (int i = 5; i < arr.length; i++) {
                 student.addResponse(arr[i]);
             }
-            studentList.add(student);
+            if (student != null) {
+                studentList.add(student);
+            }
         }
         dataScanner.close();
     }
 
+
     /**
      * returns the associated index of the given hobby
-     * @param s is the hobby
+     * 
+     * @param s
+     *            is the hobby
      * @return integer index position
      */
     public int getIntForHobby(String s) {
@@ -91,8 +99,9 @@ public class DataSolver {
         return -1;
     }
 
+
     /**
-     * loops through student survey data to change 
+     * loops through student survey data to change
      * Song information
      */
     public void loopSongData() {
@@ -100,51 +109,58 @@ public class DataSolver {
             int[] responses = studentList.get(i).getResponses();
             Student student = studentList.get(i);
             for (int x = 0; x < responses.length; x += 2) {
-                if (responses[x] == 1) {
-                    songList.get(x).incrementHobbyHeard(getIntForHobby(student
-                        .getHobby()));
-                }
+                if (x < responses.length) {
+                    if (responses[x] == 1) {
+                        songList.get(x).incrementHobbyHeard(getIntForHobby(
+                            student.getHobby()));
+                    }
 
-                if (responses[x + 1] == 1) {
-                    songList.get(x).incrementHobbyLiked(getIntForHobby(student
-                        .getHobby()));
+                    if (responses[x + 1] == 1) {
+                        songList.get(x).incrementHobbyLiked(getIntForHobby(
+                            student.getHobby()));
+                    }
                 }
 
             }
         }
     }
+
+
     /**
-     * gets the list of students 
+     * gets the list of students
+     * 
      * @return a SinglyLinkedList<Student>
      */
-    public SinglyLinkedList<Student> getStudentList(){
+    public SinglyLinkedList<Student> getStudentList() {
         int x = 0;
-        
+
         return studentList;
-        
+
     }
-    
+
+
     /**
      * gets the list of songs
+     * 
      * @return a SinglyLinkedList<Song>
      */
     public SinglyLinkedList<Song> getSongList() {
         return songList;
     }
-    
-    
+
+
     /**
      * sorts the songlist alphabetically
      */
     public void sortSongsByTitle() {
-        for(int x = 0; x < songList.size(); x++) {
+        for (int x = 0; x < songList.size(); x++) {
             Song minTitleSong = songList.get(x);
             int minIndex = x;
-            for(int j = x; j < songList.size(); j++) {
+            for (int j = x; j < songList.size(); j++) {
                 Song song = songList.get(j);
                 String songName = song.getTitle();
                 String minSongName = minTitleSong.getTitle();
-                if(songName.compareTo(minSongName)<=0) {
+                if (songName.compareTo(minSongName) <= 0) {
                     minSongName = songName;
                     minTitleSong = song;
                     minIndex = j;
