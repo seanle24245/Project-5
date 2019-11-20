@@ -111,12 +111,12 @@ public class DataSolver {
             for (int x = 0; x < responses.length; x += 2) {
                 if (x < responses.length) {
                     if (responses[x] == 1) {
-                        songList.get(x).incrementHobbyHeard(getIntForHobby(
+                        songList.get(x / 2).incrementHobbyHeard(getIntForHobby(
                             student.getHobby()));
                     }
 
                     if (responses[x + 1] == 1) {
-                        songList.get(x).incrementHobbyLiked(getIntForHobby(
+                        songList.get(x / 2).incrementHobbyLiked(getIntForHobby(
                             student.getHobby()));
                     }
                 }
@@ -132,7 +132,7 @@ public class DataSolver {
      * @return a SinglyLinkedList<Student>
      */
     public SinglyLinkedList<Student> getStudentList() {
-        int x = 0;
+        //int x = 0;
 
         return studentList;
 
@@ -160,6 +160,28 @@ public class DataSolver {
                 Song song = songList.get(j);
                 String songName = song.getTitle();
                 String minSongName = minTitleSong.getTitle();
+                if (songName.compareTo(minSongName) <= 0) {
+                    minSongName = songName;
+                    minTitleSong = song;
+                    minIndex = j;
+                }
+            }
+            songList.remove(minIndex);
+            songList.add(x, minTitleSong);
+        }
+    }
+    
+    /**
+     * sorts the songs by genre
+     */
+    public void sortSongsByGenre() {
+        for (int x = 0; x < songList.size(); x++) {
+            Song minTitleSong = songList.get(x);
+            int minIndex = x;
+            for (int j = x; j < songList.size(); j++) {
+                Song song = songList.get(j);
+                String songName = song.getGenre();
+                String minSongName = minTitleSong.getGenre();
                 if (songName.compareTo(minSongName) <= 0) {
                     minSongName = songName;
                     minTitleSong = song;
